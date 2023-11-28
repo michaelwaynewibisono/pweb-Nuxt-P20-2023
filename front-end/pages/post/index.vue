@@ -91,7 +91,7 @@ const submitForm = async () => {
   const responseData = await response.json();
   console.log(responseData);
 
-  router.push("/blog");
+  router.push("/#blog");
   const form = document.querySelector("form");
   if (form) {
     form.reset();
