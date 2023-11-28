@@ -1,4 +1,8 @@
 <template>
+  <div
+    class="fixed bg-[#2e2e2e] bg-opacity-50 h-screen w-full z-50"
+    :style="{ display: isOpen ? 'block' : 'none' }"
+  ></div>
   <LazyNavbar custom="sticky" />
   <div>
     <h1>Blogs</h1>
@@ -14,43 +18,64 @@
         width="300"
       />
       <hr />
-      <h1 class="font-bold cursor-pointer" @click="openEditForm(blog)">EDIT</h1>
+      <div @click="button">
+        <h1 class="font-bold cursor-pointer" @click="openEditBlog(blog)">
+          EDIT
+        </h1>
+      </div>
       <h1 class="font-bold cursor-pointer" @click="deleteBlog(blog.id)">
         DELETE
       </h1>
     </div>
   </div>
 
-  <div>
-    <h1>Edit Blog</h1>
-    <form @submit.prevent="updateBlog">
+  <div
+    class="fixed z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#F9F9F9] w-[90%] lg:w-[55%] px-11 py-12 rounded-xl"
+    :style="{ display: isOpen ? 'block' : 'none' }"
+  >
+    <form @submit.prevent="updateBlog" enctype="multipart/form-data">
+      <div class="flex justify-between items-center w-full">
+        <div
+          class="cursor-pointer bg-[#2e2e2e] text-[#F8F8F8] hover:shadow-xl px-4 py-1 rounded-full"
+          @click="button"
+        >
+          Cancel
+        </div>
+        <button
+          type="submit"
+          class="bg-[#3D6356] text-[#F8F8F8] hover:shadow-xl px-4 py-1 rounded-full"
+          @click="button"
+        >
+          Update
+        </button>
+      </div>
+      <div class="my-12"></div>
       <input
         type="text"
         v-model="editBlogData.title"
-        class="my-2 p-2 border rounded"
+        class="py-2 text-3xl outline-none bg-[#F9F9F9] w-full"
         placeholder="Title"
         required
       />
 
+      <div class="my-3"></div>
+
       <input
         type="text"
         v-model="editBlogData.author"
-        class="my-2 p-2 border rounded"
+        class="py-2 text-lg outline-none bg-[#F9F9F9] w-full"
         placeholder="Author"
         required
       />
+      <div class="my-5"></div>
 
       <textarea
         v-model="editBlogData.text"
-        class="my-2 p-2 border rounded"
-        placeholder="Blog Content"
-        rows="6"
+        class="resize-none outline-none bg-[#F9F9F9] w-full text-xl"
+        placeholder="What's new?"
+        rows="8"
         required
-      ></textarea>
-
-      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
-        Update
-      </button>
+      />
     </form>
   </div>
 </template>
@@ -60,14 +85,19 @@ export default {
   data() {
     return {
       blogs: [],
-      showEditForm: false, // State variable to control edit form display
       editBlogData: {},
+      isOpen: false,
     };
   },
   async mounted() {
     await this.useAsyncData();
   },
+
   methods: {
+    button() {
+      this.isOpen = !this.isOpen;
+    },
+
     async useAsyncData() {
       try {
         const response = await fetch("http://localhost:8000/api/blogs");
@@ -78,31 +108,27 @@ export default {
       }
     },
 
-    openEditForm(blog) {
-      // Assuming you want to populate the form fields when editing
+    openEditBlog(blog) {
       this.editBlogData = { ...blog };
-      this.showEditForm = true; // Display the edit form
     },
 
     async updateBlog() {
       try {
-        const { id, ...updatedData } = this.editBlogData; // Extract id and updated data
-        const response = await fetch(`http://localhost:8000/api/blogs/${id}`, {
+        const { id, ...updatedData } = this.editBlogData;
+        const response = await fetch("http://localhost:8000/api/blogs/" + id, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(updatedData), // Send updated data in the body
+          body: JSON.stringify(updatedData),
         });
         if (response.ok) {
-          // Optionally, update the UI or perform other actions after successful update
+          const putIndex = this.blogs.findIndex((blog) => blog.id === id);
+          this.blogs[putIndex] = { id, ...updatedData };
           console.log("Blog updated successfully!");
         }
       } catch (error) {
         console.error("Error updating blog:", error);
-      } finally {
-        // Hide the edit form regardless of success or failure
-        this.showEditForm = false;
       }
     },
 
