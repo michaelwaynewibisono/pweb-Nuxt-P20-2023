@@ -16,7 +16,12 @@
       >
     </div>
     <div>
-      <NuxtImg src="/pictures.png" class="w-[40rem]"></NuxtImg>
+      <!-- <NuxtImg class="w-[40rem]" src="/pictures.png" /> -->
+      <NuxtImg
+        src="../public/pictures.png"
+        class="w-[40rem]"
+        alt="pictures"
+      ></NuxtImg>
     </div>
   </div>
   <div
