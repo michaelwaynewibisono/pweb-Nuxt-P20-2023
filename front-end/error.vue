@@ -12,22 +12,12 @@
     >
       Go Back Home
     </NuxtLink>
-    <div>{{ res.data }}</div>
+    <div>{{ data }}</div>
   </div>
 </template>
 
 <script setup>
-const res = await useAsyncData(async () => {
-  console.log(new Date());
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const date = new Date();
-      resolve(date);
-    }, 2000);
-    // const date = new Date();
-    // resolve(date);
-  });
-});
+const data = new Date();
 </script>
 
 <style>

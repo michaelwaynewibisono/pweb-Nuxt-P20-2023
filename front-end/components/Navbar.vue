@@ -25,9 +25,9 @@
           Department
         </div></NuxtLink
       >
-      <NuxtLink to="#contact"
+      <NuxtLink to="/team"
         ><div class="cursor-pointer hover:text-[#000000]">
-          Contact
+          Our Team
         </div></NuxtLink
       >
     </div>
@@ -66,9 +66,7 @@
       <NuxtLink to="#department"
         ><div class="cursor-pointer">Department</div></NuxtLink
       >
-      <NuxtLink to="#contact"
-        ><div class="cursor-pointer">Contact</div></NuxtLink
-      >
+      <NuxtLink to="/team"><div class="cursor-pointer">Our Team</div></NuxtLink>
       <NuxtLink to="#blog">
         <div
           class="absolute left-1/2 transform -translate-x-1/2 bg-[#FFFFFF] hover:bg-[#F2F2F2] text-xl text-[#3D6356] py-2 px-4 cursor-pointer rounded-[3px] mt-6"
