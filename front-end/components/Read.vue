@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 py-6 px-6 lg:px-6 gap-4"
+    class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 py-6 px-6 lg:px-6 gap-4"
     id="blog"
   >
     <div
@@ -15,10 +15,10 @@
       />
       <div class="w-full px-8 pt-4 pb-8">
         <div class="my-4 text-4xl text-left font-semibold">
-          {{ truncateText1(blog.title) }}
+          {{ truncateTitle(blog.title) }}
         </div>
         <p class="text-left">
-          {{ truncateText2(blog.text) }}
+          {{ truncateText(blog.text) }}
         </p>
         <br />
         <div class="flex flex-row justify-between items-center w-full">
@@ -148,13 +148,13 @@ export default {
       this.pop = !this.pop;
     },
 
-    truncateText1(title) {
+    truncateTitle(title) {
       if (title.length > 10) {
         return title.substring(0, 10) + "...";
       }
       return title;
     },
-    truncateText2(text) {
+    truncateText(text) {
       if (text.length > 200) {
         return text.substring(0, 200) + "...";
       }

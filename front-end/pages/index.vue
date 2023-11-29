@@ -5,5 +5,6 @@
     <LazyLanding2 />
     <LazyRead />
     <LazyCreate />
+    <LazyFooter />
   </div>
 </template>
