@@ -1,7 +1,9 @@
 <template>
   <div
-    class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 py-6 px-6 lg:px-6 gap-4"
+    class="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 py-6 px-6 lg:px-6 gap-4"
     id="blog"
+    data-aos="fade-up"
+    data-aos-duration="500"
   >
     <div
       class="relative flex flex-col items-center bg-[#3D6356] text-[#DBE2BD] rounded-2xl border-2 border-[#3D6356]"
@@ -14,6 +16,27 @@
         class="w-full h-80 object-cover rounded-2xl"
       />
       <div class="w-full px-8 pt-4 pb-8">
+        <div class="flex justify-between items-center items-center">
+          <div></div>
+          <div class="flex gap-2 items-center text-lg">
+            <div
+              @click="increment(blog.id)"
+              class="fill-[#C70039] cursor-pointer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20"
+                width="20"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+                />
+              </svg>
+            </div>
+            <div class="select-none">{{ blog.likes }}</div>
+          </div>
+        </div>
         <div class="my-4 text-4xl text-left font-semibold">
           {{ truncateTitle(blog.title) }}
         </div>
@@ -134,6 +157,42 @@ export default {
   },
 
   methods: {
+    async increment(blogId) {
+      try {
+        const blog = this.blogs.find((blog) => blog.id === blogId);
+
+        // If likes are not defined or null, set default value to 0
+        if (!blog.likes && blog.likes !== 0) {
+          blog.likes = 0;
+        }
+
+        // Increment likes locally and send PUT request to update likes on the API
+        blog.likes++;
+
+        const response = await fetch(
+          `http://localhost:8000/api/blogs/${blogId}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ likes: blog.likes }),
+          }
+        );
+
+        if (response.ok) {
+          console.log(`Likes for blog ${blogId} updated successfully!`);
+        } else {
+          // Revert local increment on API request failure
+          blog.likes--;
+          console.error(`Failed to update likes for blog ${blogId}`);
+        }
+      } catch (error) {
+        // Revert local increment on API request failure
+        blog.likes--;
+        console.error("Error updating likes:", error);
+      }
+    },
     //Read Blog
     async useAsyncData() {
       const response = await fetch("http://localhost:8000/api/blogs");

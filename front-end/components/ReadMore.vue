@@ -10,7 +10,7 @@
           class="mb-4 cursor-pointer bg-[#2e2e2e] text-[#F8F8F8] hover:shadow-xl px-4 py-1 rounded-full"
           @click="close"
         >
-          Cancel
+          Close
         </div>
       </div>
       <div class="flex items-center gap-10">

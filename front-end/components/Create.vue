@@ -1,9 +1,9 @@
 <template>
   <div
-    class="hidden lg:flex justify-center items-center gap-28 w-full bg-[#DBE2BD] h-[70vh]"
+    class="hidden lg:flex justify-center items-center gap-16 w-full bg-[#DBE2BD] h-[70vh] px-6"
     id="create"
   >
-    <div>
+    <div data-aos="zoom-in">
       <div class="text-5xl font-bold">
         Want to Submit <br />
         a Progress?
@@ -17,7 +17,12 @@
     </div>
     <div>
       <!-- <NuxtImg src="/pictures.png" class="w-[40rem]" alt="pictures"></NuxtImg> -->
-      <img src="/pictures.png" alt="pictures" class="w-[40rem]" />
+      <img
+        data-aos="fade-up"
+        src="/pictures.png"
+        alt="pictures"
+        class="w-[40rem]"
+      />
     </div>
   </div>
   <div

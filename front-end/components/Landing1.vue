@@ -3,24 +3,20 @@
   <div
     class="relative hidden lg:flex min-h-[100vh] w-full justify-center items-center bg-[#DBE2BD]"
   >
-    <div class="">
-      <div class="text-5xl font-bold block my-auto">
-        <div>Internship Keluarga Mahasiswa</div>
-        <div class="text-[#3D6356] mt-2">Teknologi Informasi</div>
-        <div class="text-lg mt-6 font-normal">
+    <NuxtImg src="/flower.svg" class="w-[25rem] absolute right-0"></NuxtImg>
+    <NuxtImg src="/leaf_2.svg" class="absolute left-0 bottom-0"></NuxtImg>
+    <div>
+      <div
+        data-aos="zoom-in-up"
+        class="text-7xl text-left font-bold block flex flex-col gap-6"
+      >
+        <div>Internship</div>
+        <div>Keluarga Mahasiwa</div>
+        <div class="text-[#3D6356]">Teknologi Informasi</div>
+        <div class="text-lg font-normal">
           Institut Teknologi Sepuluh Nopember
         </div>
       </div>
-    </div>
-    <NuxtImg
-      src="/flower.svg"
-      class="w-[25rem] absolute right-0 opacity-50"
-    ></NuxtImg>
-    <div>
-      <NuxtImg
-        src="/leaf_2.svg"
-        class="absolute left-0 bottom-0 opacity-50"
-      ></NuxtImg>
     </div>
   </div>
 
