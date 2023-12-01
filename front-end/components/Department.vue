@@ -1,6 +1,7 @@
 <template>
   <div
     class="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 grid-cols-1 gap-4 w-full p-6"
+    id="department"
   >
     <div v-for="department in departments" :key="department.id">
       <div
