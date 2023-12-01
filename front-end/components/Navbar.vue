@@ -25,6 +25,11 @@
           Department
         </div></NuxtLink
       >
+      <NuxtLink to="#create"
+        ><div class="cursor-pointer hover:text-[#000000]">
+          Create Blog
+        </div></NuxtLink
+      >
       <NuxtLink to="/team"
         ><div class="cursor-pointer hover:text-[#000000]">
           Our Team
@@ -65,6 +70,9 @@
       >
       <NuxtLink to="#department"
         ><div class="cursor-pointer">Department</div></NuxtLink
+      >
+      <NuxtLink to="#create"
+        ><div class="cursor-pointer">Create Blog</div></NuxtLink
       >
       <NuxtLink to="/team"><div class="cursor-pointer">Our Team</div></NuxtLink>
       <NuxtLink to="#blog">
