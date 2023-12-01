@@ -4,7 +4,7 @@
   >
     <div v-for="department in departments" :key="department.id">
       <div
-        class="bg-[#B3C9A7] px-4 py-8 flex flex-col items-center rounded-md"
+        class="bg-[#B3C9A7] px-4 py-8 flex flex-col text-center items-center rounded-md"
         data-aos="zoom-in-up"
         data-aos-delay="300"
       >
