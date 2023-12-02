@@ -117,9 +117,6 @@ onMounted(() => {
 //Update Likes
 const increment = async (blogId) => {
   const blog = blogs.value.find((blog) => blog.id === blogId);
-  if (!blog.likes && blog.likes !== 0) {
-    blog.likes = 0;
-  }
   blog.likes++;
   await fetch(`http://localhost:8000/api/blogs/${blogId}`, {
     method: "PUT",
@@ -133,12 +130,10 @@ const increment = async (blogId) => {
 //Delete Blog
 const deleteBlog = async (id) => {
   if (confirm("Do you really want to delete?")) {
-    const response = await fetch("http://localhost:8000/api/blogs/" + id, {
+    await fetch("http://localhost:8000/api/blogs/" + id, {
       method: "DELETE",
     });
-    if (response.ok) {
-      blogs.value = blogs.value.filter((blog) => blog.id !== id);
-    }
+    blogs.value = blogs.value.filter((blog) => blog.id !== id);
   }
 };
 </script>
