@@ -1,12 +1,12 @@
 <template>
-  <div class="p-0 m-0 box-border">
-    <!-- <NuxtWelcome /> -->
-    <NuxtPage />
-  </div>
+  <NuxtPage />
 </template>
 
 <style>
 * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   scroll-behavior: smooth;
 }
 

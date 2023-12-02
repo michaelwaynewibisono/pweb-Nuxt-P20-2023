@@ -3,14 +3,14 @@
   <div
     :class="[
       custom,
-      'flex justify-between items-center min-h-[8vh] px-6 py-6 lg:py-4 top-0 w-full bg-[#DBE2BD] z-40',
+      'flex justify-between items-center min-h-[8vh] px-12 py-6 lg:py-4 top-0 w-full bg-[#DBE2BD] z-40',
     ]"
   >
     <NuxtLink to="/"
       ><div class="font-bold text-xl">IT MAGANG BLOG</div></NuxtLink
     >
     <div
-      class="hidden lg:flex text-[#514D4B] font-semibold absolute gap-6 left-1/2 transform -translate-x-1/2"
+      class="hidden lg:flex text-[#514D4B] font-semibold absolute gap-8 left-1/2 transform -translate-x-1/2"
     >
       <NuxtLink to="/"
         ><div class="cursor-pointer hover:text-[#000000]">Home</div></NuxtLink
