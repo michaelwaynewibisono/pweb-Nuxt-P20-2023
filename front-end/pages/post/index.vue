@@ -47,6 +47,8 @@
           required
         />
 
+        <input type="number" v-model.number="formData.likes" class="hidden" />
+
         <div class="my-4"></div>
         <input
           type="file"
@@ -69,6 +71,7 @@ const formData = ref({
   title: "",
   author: "",
   text: "",
+  likes: "0",
   file: null,
 });
 
@@ -81,6 +84,7 @@ const submitForm = async () => {
   data.append("title", formData.value.title);
   data.append("author", formData.value.author);
   data.append("text", formData.value.text);
+  data.append("likes", parseInt(formData.value.likes));
   data.append("file", formData.value.file);
 
   const response = await fetch("http://localhost:8000/api/blogs", {
@@ -101,6 +105,7 @@ const submitForm = async () => {
   formData.value.title = "";
   formData.value.author = "";
   formData.value.text = "";
+  formData.value.likes = "";
   formData.value.file = null;
 };
 </script>
