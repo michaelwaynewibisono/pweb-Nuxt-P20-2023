@@ -25,10 +25,7 @@
       />
     </div>
   </div>
-  <div
-    class="lg:hidden flex flex-col justify-center items-center w-full bg-[#DBE2BD] h-auto px-[10%] py-[10%]"
-    id="post"
-  >
+  <div class="lg:hidden block text-center py-12" id="post">
     <div>
       <div class="text-4xl font-bold">
         Want to Submit <br />

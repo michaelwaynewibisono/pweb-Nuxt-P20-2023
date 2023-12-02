@@ -1,10 +1,10 @@
 <template>
   <!-- Desktop Mode -->
   <div
-    class="relative hidden lg:flex min-h-[100vh] w-full justify-center items-center bg-[#DBE2BD]"
+    class="relative hidden lg:flex min-h-[100vh] w-full items-center px-12 bg-[#DBE2BD]"
   >
     <NuxtImg src="/flower.svg" class="w-[25rem] absolute right-0"></NuxtImg>
-    <NuxtImg src="/leaf_2.svg" class="absolute left-0 bottom-0"></NuxtImg>
+    <!-- <NuxtImg src="/leaf_2.svg" class="absolute left-0 bottom-0"></NuxtImg> -->
     <div>
       <div
         data-aos="zoom-in-up"

@@ -1,11 +1,11 @@
 <template>
   <div
-    class="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 grid-cols-1 gap-4 w-full p-6"
+    class="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 grid-cols-1 gap-4 w-full px-12 p-6"
     id="department"
   >
     <div v-for="department in departments" :key="department.id">
       <div
-        class="bg-[#B3C9A7] px-4 py-8 flex flex-col text-center items-center rounded-md"
+        class="bg-[#B3C9A7] px-4 py-8 flex flex-col text-center items-center h-full rounded-md"
         data-aos="zoom-in-up"
         data-aos-delay="300"
       >
